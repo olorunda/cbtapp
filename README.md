@@ -1,5 +1,5 @@
 # cbtapp
-A easy to use computer based test web application with an admi and student panel 
+A easy to use computer based test web application with an admin and student panel 
 Import the sql file use this admin login to loginin into the app
 username:olll@gg.com
 password:peace133
