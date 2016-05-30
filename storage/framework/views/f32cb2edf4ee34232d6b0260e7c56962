@@ -1,0 +1,82 @@
+<?php $__env->startSection('content'); ?>
+  <section class="content-header">
+          <h1>
+            Welcome to C B T Portal
+            <small>Electronic Test</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li class="active">Here</li>
+          </ol>
+        </section>
+		<div style="padding-top:30px;">
+		<table class="table table-inverse" >
+		<thead>
+    <tr>
+      <th>#</th>
+      <th>Question</th>
+      <th>Option 1</th>
+      <th>Option 2</th>
+      <th>Option 3</th>
+      <th>Option 4</th>
+      <th>Answer</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php if(count($allquestion) > 0): ?> 
+	<tr id="all">
+	  <?php foreach($allquestion as $questions): ?>
+      
+    <tr >
+	 <td scope="row"></th>
+      <td scope="row"><?php echo e($questions->content); ?></th>
+     
+      <td><?php echo e($questions->option1); ?></td>
+      <td><?php echo e($questions->option2); ?></td>
+      <td><?php echo e($questions->option3); ?></td>
+      <td><?php echo e($questions->option4); ?></td>
+      <td>Option <?php echo e($questions->correctoption); ?> is correct</td>
+      <td><button class="btn btn-primary btn-md" onClick="edit(<?php echo e($questions->question_id); ?>)">Edit</button></td>
+      <td><button class="btn btn-primary btn-md" onClick="deleted(<?php echo e($questions->question_id); ?>)">Delete</button></td>
+    </tr>
+	<?php endforeach; ?>
+</tr>
+	<?php else: ?>
+		 <tr >
+	 <th class="text-info">No </th>
+      <th class="text-info">question</th>
+     
+      <td class="text-info"><b>In</b></td>
+      <td class="text-info"><b>The</b></td>
+      <td class="text-info"><b>Database</b></td>
+    </tr>
+	
+	<?php endif; ?>
+   <tr  id="editfield">
+	 <td scope="row"></th>
+      <td scope="row">
+	  <input type="hidden" name="_token" id="ccc" value="<?php echo e(csrf_token()); ?>"><textarea class="form-control" id="questions" ></textarea></th>
+     
+      <td><input type="text"  class="form-control" id="option1"/>
+	  <input type="hidden"  class="form-control" id="id"/></td>
+      <td><input type="text"  class="form-control" id="option2"/></td>
+      <td><input type="text"  class="form-control" id="option3"/></td>
+      <td><input type="text"  class="form-control" id="option4"/></td>
+      <td><select class="form-control" id="answer" >
+								
+								<option value='1'>Option One </option>
+								<option value='2'>Option Two </option>
+								<option value='3'>Option Three </option>
+								<option value='4'>Option Four </option>
+								</select></td>
+      <td><button class="btn btn-primary btn-md" id="update">Update</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+  	<div class="col-md-9"></div><?php echo $allquestion->render(); ?>
+
+        </section>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
