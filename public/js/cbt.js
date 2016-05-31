@@ -14,12 +14,12 @@ $('#timer').timer({
 		
 			localStorage.setItem('testtaken','Yes');
 				submitanswer();
-				$('#submittted').text('Time Up!!');
+			
 				$('#submittted').show();
 				getscore();
 				$('#question').hide();
 				localStorage.setItem('resume',0);
-				$('#timer').timer('pause');
+				$('#timer').timer('remove');
 	}
 	
 });
